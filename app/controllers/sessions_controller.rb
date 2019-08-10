@@ -8,9 +8,8 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
     puts user.inspect
     if user && user.authenticate(params[:password])
-      puts "SUCCESS"
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to user_path(user.id)
     else
       puts "ERROR"
       render 'new'
@@ -19,7 +18,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    User.find(session[:user_id]).destroy
     session[:user_id] = nil
     redirect_to root_url, notice: "Logged out!"
   end
