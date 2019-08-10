@@ -1,0 +1,19 @@
+<h1> Sessions New </h1>
+<p id=”alert”><%= alert %></p>
+<h2> Current user is <%= "#{@current_user.username}" unless @current_user.nil? %>
+
+<div class="sign-in-form">
+  <%= form_tag sessions_path do|f| %>
+  <div class=”field”>
+    <%= label_tag :username%>
+    <%= text_field_tag :username %>
+  </div>
+  <div class=”field”>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+  <div class=”actions”>
+    <%= submit_tag "Login" %>
+  </div>
+<% end %>
+</div>

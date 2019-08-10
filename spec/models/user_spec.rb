@@ -11,6 +11,6 @@ describe User do
   it { should validate_uniqueness_of(:email) }
 
   it 'does not store the password in plain text' do
-    expect(subject.password).not_to eq('Potato123!')
+    expect(subject.password_digest).not_to eq('Potato123!')
   end
 end
