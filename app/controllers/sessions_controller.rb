@@ -9,17 +9,17 @@ class SessionsController < ApplicationController
     puts user.inspect
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to user_path(user.id)
+      redirect_to user_path(user.username)
     else
-      puts "ERROR"
+      flash.now[:notice] = "Error"
       render 'new'
-      flash.now[:alert] = "Error"
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: "Logged out!"
+    redirect_to root_url
+    flash[:notice] = "Logged Out"
   end
 
 end

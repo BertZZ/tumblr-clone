@@ -1,4 +1,9 @@
 <h1> Users New </h1>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <div class="sign-up-form">
   <%= form_for @user do|f| %>
     Username: <%= f.text_field :username %>
