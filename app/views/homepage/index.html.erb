@@ -1,5 +1,8 @@
 <h1> WELCOME </h1>
 
+<h2> Current user is <%= "#{@current_user.username}" unless @current_user.nil? %>
+<br></br>
+
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
